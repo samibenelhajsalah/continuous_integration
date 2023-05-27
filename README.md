@@ -1,0 +1,29 @@
+# Add simple CI for c++ example by installing g++ compile
+```yml
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install g++
+      run: sudo apt-get update && sudo apt-get install -y g++
+
+    - name: Build project
+      run: g++ -o myapp main.cpp
+
+    - name: Run tests
+      run: ./myapp
+```
