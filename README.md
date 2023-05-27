@@ -27,3 +27,5 @@ jobs:
     - name: Run tests
       run: ./myapp
 ```
+
+>Assurez-vous de créer le fichier de configuration de workflow ci.yml dans le dossier .github/workflows de votre dépôt GitHub. Une fois cela fait, chaque fois que vous effectuez un push ou une pull_request sur la branche principale (main), le workflow CI sera déclenché, et votre code sera compilé et testé automatiquement.
