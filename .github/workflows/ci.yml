@@ -16,8 +16,8 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up C++ compiler
-      uses: actions/setup-cpp@v2
+    - name: Install g++
+      run: sudo apt-get update && sudo apt-get install -y g++
 
     - name: Build project
       run: g++ -o myapp main.cpp
