@@ -1,0 +1,28 @@
+name: Build and Run
+
+on:
+  push:
+    branches:
+      - ci-based-on-docker
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker
+        uses: docker/setup-docker@v1
+
+      - name: Pull Docker image
+        run: docker pull samibenelhajsalah/image-docker-hub
+
+      - name: Build
+        run: |
+          docker run -v $PWD:/app -w /app samibenelhajsalah/image-docker-hub g++ -o main main.cpp
+
+      - name: Run
+        run: docker run -v $PWD:/app -w /app samibenelhajsalah/image-docker-hub ./main
+
