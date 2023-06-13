@@ -3,7 +3,7 @@ name: Build and Run
 on:
   push:
     branches:
-      - ci-based-on-docker
+      - main
 
 jobs:
   build:
